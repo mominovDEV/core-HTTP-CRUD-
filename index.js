@@ -114,6 +114,15 @@ const server = http.createServer(async (req, res) => {
         updatedBook:books[bookIndex]
     };
     res.end(JSON.stringify(resp))
+  } else {
+    res.writeHead(404,{
+        "Content-type":"application/json charset utf-8"
+    });
+    const resp = {
+        status:404,
+        message:"Endpoint or method not found"
+    };
+    res.end(JSON.stringify(resp));
   }
 });
 
