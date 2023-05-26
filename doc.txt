@@ -1,0 +1,6 @@
+user = {
+    id => uuid.v4(), 
+    name,
+    email,
+    password
+}
