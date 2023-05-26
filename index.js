@@ -5,15 +5,15 @@ const { getAllBook, createBook, getBookById, updateBook, deleteBook } = require(
 const basicErrorHandler = require("./helpers/basicErrorHandler");
 
 const server = http.createServer(async (req, res) => {
-  if (req.url == "/books" && req.method == "GET") {
+  if (req.url === "/books" && req.method === "GET") {
     getAllBook(req,res);
-  } else if (req.url == "/books" && req.method == "POST") {
+  } else if (req.url === "/books" && req.method === "POST") {
       createBook(req,res)
-  } else if (req.url.match(/\/books\/\w+/) && req.method == "GET") {
+  } else if (req.url.match(/\/books\/\w+/) && req.method === "GET") {
       getBookById(req,res)
-  } else if (req.url.match(/\/books\/\w+/) && req.method == "DELETE") {
+  } else if (req.url.match(/\/books\/\w+/) && req.method === "DELETE") {
       deleteBook(req,res)
-  } else if (req.url.match(/\/books\/\w+/) && req.method == "PUT") {
+  } else if (req.url.match(/\/books\/\w+/) && req.method === "PUT") {
       updateBook(req,res)
   } else {
     res.writeHead(404, {

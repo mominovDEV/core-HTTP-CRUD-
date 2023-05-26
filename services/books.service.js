@@ -3,9 +3,19 @@ const createNewObjectBook = require("../helpers/createnewObjectbook");
 const getBodyData = require("../helpers/getBodyData");
 const notFoundfunc = require("../helpers/notFound.error");
 const bookModel = require("../models/bookmodel");
+const pool  = require("../database/connect");
 
 async function getAllBook(req, res) {
   try {
+    const results = await new Promise((resolve, reject) => {
+      pool.query('SELECT * FROM region', (error, results) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(results);
+        }
+      });
+    });  
     res.writeHead(200, {
       "Content-type": "application/json",
     });
@@ -15,6 +25,7 @@ async function getAllBook(req, res) {
     };
     res.end(JSON.stringify(resp));
   } catch (error) {
+    console.log(error)
     basicErrorHandler(res);
   }
 }
