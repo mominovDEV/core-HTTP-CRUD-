@@ -8,3 +8,4 @@ const pool = mysql.createPool({
 });
 
 module.exports = pool;
+pool.query("show tables", (error, result) => console.log(result));

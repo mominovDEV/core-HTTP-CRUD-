@@ -3,7 +3,7 @@ const createNewObjectBook = require("../helpers/createnewObjectbook");
 const getBodyData = require("../helpers/getBodyData");
 const notFoundfunc = require("../helpers/notFound.error");
 const bookModel = require("../models/bookmodel");
-const pool = require("../database/connect");
+const pool = require("../config/database/connect");
 
 async function getAllBook(req, res) {
   try {
